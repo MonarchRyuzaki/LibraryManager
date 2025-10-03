@@ -2,6 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Member {
@@ -31,7 +32,11 @@ public class Member {
         return borrowedBooks;
     }
 
-    public void setBorrowedBooks(List<Book> borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
+    public void setBorrowedBook(Book borrowedBook) {
+        this.borrowedBooks.add(borrowedBook);
+    }
+
+    public void removeBorrowedBook(Book book) {
+        this.borrowedBooks = this.borrowedBooks.stream().filter(b -> !Objects.equals(b.getIsbn(), book.getIsbn())).toList();
     }
 }

@@ -1,10 +1,13 @@
 package Models;
 
+import java.util.UUID;
+
 public class Book {
     private final String isbn;
     private String title;
     private String author;
     private BookStatus status;
+    private UUID issuedTo;
 
     public Book(String isbn, String title, String author) {
         this.isbn = isbn;
@@ -13,12 +16,16 @@ public class Book {
         this.status = BookStatus.AVAILABLE;
     }
 
+    public void setIssued(UUID memberId) {
+        this.issuedTo = memberId;
+    }
+
     public BookStatus getStatus() {
         return status;
     }
 
-    public void setIssued() {
-        this.status = BookStatus.ISSUED;
+    public void setStatus(BookStatus status) {
+        this.status = status;
     }
 
     public String getAuthor() {
