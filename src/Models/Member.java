@@ -39,4 +39,17 @@ public class Member {
     public void removeBorrowedBook(Book book) {
         this.borrowedBooks = this.borrowedBooks.stream().filter(b -> !Objects.equals(b.getIsbn(), book.getIsbn())).toList();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder borrowedBooksString = new StringBuilder();
+        for (Book book : borrowedBooks) {
+            borrowedBooksString.append(book);
+        }
+        return "Member{" +
+                "memberId=" + memberId +
+                ", memberName='" + memberName + '\'' +
+                ", borrowedBooks=" + borrowedBooksString +
+                '}';
+    }
 }
