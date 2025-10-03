@@ -26,8 +26,7 @@ public class MemberManagementService {
             throw new IllegalArgumentException("Member is null");
         }
         if (memberExists(member.getMemberName())) {
-            System.out.println("Member already exists!");
-            return;
+            throw new IllegalArgumentException("A member with the name '" + member.getMemberName() + "' already exists.");
         }
         memberList.add(member);
     }

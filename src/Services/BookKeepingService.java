@@ -10,7 +10,7 @@ public class BookKeepingService {
     private final List<Book> bookList = new ArrayList<>();
     private static BookKeepingService bookManager;
     private BookKeepingService() {}
-    public synchronized BookKeepingService getBookManager() {
+    public synchronized static BookKeepingService getInstance() {
         if (bookManager == null) {
             bookManager = new BookKeepingService();
         }

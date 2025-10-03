@@ -1,7 +1,7 @@
 package Models;
 
 public class Book {
-    private String isbn;
+    private final String isbn;
     private String title;
     private String author;
     private BookStatus status;
@@ -39,9 +39,5 @@ public class Book {
 
     public String getIsbn() {
         return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
     }
 }
